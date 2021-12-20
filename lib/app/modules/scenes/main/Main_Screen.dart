@@ -39,50 +39,50 @@ class MainScreen extends StatelessWidget {
                   builder: (controller) {
                     return Container(
                       padding: EdgeInsets.only(top: 20),
-                      // child: ListView.separated(
-                      //     separatorBuilder: (
-                      //         BuildContext context,
-                      //         int index
-                      //         ) {
-                      //       return Padding(
-                      //           padding: const EdgeInsets.only(left: 20),
-                      //           child: Divider(height: 1)
-                      //       );
-                      //     },
-                      //     itemCount: controller.todos.length,
-                      //     itemBuilder: (context, index) {
-                      //       var todo = todoController.todos[index];
-                      //       return TodoCard(
-                      //         todo: todo,
-                      //         onCheck: () {
-                      //           todoController.checkItem(index);
-                      //         },
-                      //         itemIndex: index,
-                      //         onPress: () => _onNavigateToEditScreen(context, todo),
-                      //         onDismiss: () => todoController.removeTodo(id: todo.id),
-                      //       );
-                      //     }),
-                      child: ImplicitlyAnimatedList<Todo>(
-                        items: todoController.todos,
-                        areItemsTheSame: (a, b) => a.id == b.id,
-                        itemBuilder: (context, animation, item, index) {
-                          var todo = todoController.todos[index];
-                          return SizeFadeTransition(
-                              sizeFraction: 0.4,
-                              curve: Curves.easeInOut,
-                              animation: animation,
-                              child: TodoCard(
-                                todo: todo,
-                                onCheck: () {
-                                  todoController.checkItem(index);
-                                },
-                                itemIndex: index,
-                                onPress: () => _onNavigateToEditScreen(context, todo),
-                                onDismiss: () => todoController.removeTodo(id: todo.id),
-                              )
-                          );
-                        },
-                      ),
+                      child: ListView.separated(
+                          separatorBuilder: (
+                              BuildContext context,
+                              int index
+                              ) {
+                            return Padding(
+                                padding: const EdgeInsets.only(left: 20),
+                                child: Divider(height: 1)
+                            );
+                          },
+                          itemCount: controller.todos.length,
+                          itemBuilder: (context, index) {
+                            var todo = todoController.todos[index];
+                            return TodoCard(
+                              todo: todo,
+                              onCheck: () {
+                                todoController.checkItem(index);
+                              },
+                              itemIndex: index,
+                              onPress: () => _onNavigateToEditScreen(context, todo),
+                              onDismiss: () => todoController.removeTodo(id: todo.id),
+                            );
+                          }),
+                      // child: ImplicitlyAnimatedList<Todo>(
+                      //   items: todoController.todos,
+                      //   areItemsTheSame: (a, b) => a.id == b.id,
+                      //   itemBuilder: (context, animation, item, index) {
+                      //     var todo = todoController.todos[index];
+                      //     return SizeFadeTransition(
+                      //         sizeFraction: 0.4,
+                      //         curve: Curves.easeInOut,
+                      //         animation: animation,
+                      //         child: TodoCard(
+                      //           todo: todo,
+                      //           onCheck: () {
+                      //             todoController.checkItem(index);
+                      //           },
+                      //           itemIndex: index,
+                      //           onPress: () => _onNavigateToEditScreen(context, todo),
+                      //           onDismiss: () => todoController.removeTodo(id: todo.id),
+                      //         )
+                      //     );
+                      //   },
+                      // ),
                     );
                   },
                 ),
